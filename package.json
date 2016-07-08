@@ -1,0 +1,29 @@
+{
+  "name": "binder-health-checker",
+  "version": "1.0.0",
+  "description": "A module that does periodic health checks on all Binder components",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binder-project/binder-health-checker.git"
+  },
+  "keywords": [
+    "binder",
+    "health"
+  ],
+  "author": "Andrew Osheroff <andrewosh@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/binder-project/binder-health-checker/issues"
+  },
+  "homepage": "https://github.com/binder-project/binder-health-checker#readme",
+  "dependencies": {
+    "binder-client": "^1.0.2",
+    "binder-db": "^1.0.1",
+    "binder-logging": "^1.0.3",
+    "binder-module": "^1.0.5"
+  }
+}
