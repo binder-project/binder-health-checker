@@ -1,3 +1,16 @@
 {
-  "deployInterval": 20000
+  "port": 8086,
+  "interval": 40000,
+  "build": {
+    "host": "localhost",
+    "port": 8082
+  },
+  "registry": {
+    "host": "localhost",
+    "port": 8082
+  },
+  "deploy": {
+    "host": "localhost",
+    "port": 8084
+  }
 }
