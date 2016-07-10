@@ -1,20 +1,13 @@
 var async = require('async')
 var binder = require('binder-client')
-var getLogger = require('binder-logging').getLogger
 var getDatabase = require('binder-db').getDatabase
 
 var settings = require('../lib/settings')
-var logger = getLogger('binder-health-checker')
 
-var apiKey = opts.apiKey || process.env['BINDER_API_KEY']
+var apiKey = process.env['BINDER_API_KEY']
 var buildOpts = {
   host: settings.build.host,
   port: settings.build.port,
-  'api-key': apiKey
-}
-var registryOpts = {
-  host: settings.registry.host,
-  port: settings.registry.port,
   'api-key': apiKey
 }
 var deployOpts = {
@@ -25,7 +18,7 @@ var deployOpts = {
 
 var checks = {
   deploy: checkDeploy,
-  build: checkBuild,
+  build: checkBuild
 }
 
 function checkDeploy (cb) {
@@ -59,7 +52,8 @@ function checkBuild (cb) {
 
 function checkFailed (db, type, cb) {
   db.update({ name: type }, { $set: {
-    status: 'down' timestamp: new Date()
+    status: 'down',
+    timestamp: new Date()
   } }, { upsert: true }, function (err) {
     return cb(err)
   })
@@ -67,7 +61,8 @@ function checkFailed (db, type, cb) {
 
 function checkPassed (db, type, cb) {
   db.update({ name: type }, { $set: {
-    status: 'running' timestamp: new Date()
+    status: 'running',
+    timestamp: new Date()
   } }, { upsert: true }, function (err) {
     return cb(err)
   })
