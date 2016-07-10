@@ -1,6 +1,6 @@
 {
   "name": "binder-health-checker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module that does periodic health checks on all Binder components",
   "main": "index.js",
   "scripts": {
